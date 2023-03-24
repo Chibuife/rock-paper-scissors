@@ -1,0 +1,5 @@
+{ "images":[
+        {"scissors": {"url":"images/icon-scissors.svg"}},
+        {"paper": {"url":"images/icon-paper.svg"}},
+        {"rock": {"url":"images/icon-rock.svg"}}
+    ]}

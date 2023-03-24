@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&family=Public+Sans:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="sassrps/rps.css">
+    <title>ROCK PAPER SCISSORS</title>
+</head>
+<body>
+    <div class="body">
+        <div class="overlay"></div>
+        <div class="rulesBox">
+            <h2>RULES</h2>
+            <span class="closebutton"><img src="images/icon-close.svg" alt=""></span>
+            <div class="diagramcontainer">
+                <img src="images/image-rules.svg" alt="">
+            </div>
+        </div>
+
+        <section class="topsection">
+            <div>
+                <h1>ROCK PAPER SCISSORS</h1>
+            </div>
+            <div class="scorecontainer"><span class="score">SCORE</span><span class="scorenumber" data-value="0">0</span></div>
+        </section>
+
+        <section class="middlesection main " id="trigger">
+            <div class="background"><img src="images/bg-triangle.svg" alt=""></div>
+            <div class="circlecontainer">
+                <div class="circle paper opt cr" ><img src="images/icon-paper.svg" alt=""></div>
+                <div class="circle rock opt cr"><img src="images/icon-rock.svg" alt=""></div>
+                <div class="circle scissors opt cr" ><img src="images/icon-scissors.svg" alt=""></div>
+            </div>
+        </section> 
+
+        <section class="middlesection paper " id="choice">
+            <div class="circlecontainer">
+                <span class="head-circle" id="head-circle-yourPick"> <h3>YOU PICKED</h3>
+                <div class="circle paper" id="yourpickSec"><img src="" alt="selected choice" id="selectedChoice"></div></span>
+                <div class="youwin">
+                    <h1>YOU WIN</h1>
+                    <div class="playAgainBox">PLAY AGAIN</div>
+                </div>
+                <span class="head-circle" id="head-circle-housePick"> <h3>THE HOUSE PICKED</h3>
+                    <div class="circle paper" id="cpupickSec"><img src="" alt="selected choice" id="cpuChoice"></div></span>
+                </span>
+            </div>
+        </section> 
+<!-- 
+        <section class="middlesection rock">
+            <div class="circlecontainer">
+                <span class="head-circle"> <h3>YOU PICKED</h3>
+                <div class="circle rock" id="rockDiv"  style="height: 250px; width:250px;  border-radius: 300px; margin-top: 0px; margin-left: 0px; margin-right: 0px;"><img src="images/icon-rock.svg" alt=""></div></span>
+                <span class="head-circle"> <h3>THE HOUSE PICKED</h3>
+                <div class="circle empty" id="rockempty" style="height: 200px; width:200px;  border-radius: 300px; background-color: var(--RadialGradientto); margin-bottom: 20px;"></div></span>
+            </div>
+        </section> 
+
+        <section class="middlesection scissors">
+            <div class="circlecontainer">
+
+                <div class="head-circle"> <h3>YOU PICKED</h3>
+                <div class="circle scissors" id="scissors" style="height: 250px; width:250px;  border-radius: 300px;"><img src="images/icon-scissors.svg" alt=""></div></div>
+
+                <span class="head-circle"> <h3>THE HOUSE PICKED</h3>
+                <div class="circle empty" id="scissorsempty" style="height: 200px; width:200px;  border-radius: 300px; background-color: var(--RadialGradientto); margin-bottom: 20px;"></div></span>
+
+            </div>
+        </section>  -->
+
+        <section class="lastsection">
+            <div class="rulesbutton">RULES</div>
+        </section>
+        <section class="outBox" id="youwin">
+           
+    </section>
+    <!-- <section class="outBox" id="youlose">
+        <span>
+            <h1>YOU LOSE</h1>
+            <div class="playAgainBox Lose">PLAY AGAIN</div>
+        </span>
+    </section>
+    <section class="outBox" id="draw">
+        <span>
+            <h1>DRAW</h1>
+            <div class="playAgainBox Draw">PLAY AGAIN</div>
+        </span>
+    </section> -->
+    </div> 
+    <script type="module" src="app.js"></script>
+    <script type="module" src="game.json"></script>
+</body>
+</html>

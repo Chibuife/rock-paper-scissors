@@ -1,0 +1,720 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    /* Primary */
+    --ScissorsGradientfrom: hsl(39, 89%, 49%)  ;
+    --ScissorsGradientto:   hsl(40, 84%, 53%);
+    --Paper-Gradientfrom: hsl(230, 89%, 62%);
+    --Paper-Gradientto:  hsl(230, 89%, 65%);
+    --Rock-Gradientfrom: hsl(349, 71%, 52%);
+    --Rock-Gradientto:  hsl(349, 70%, 56%);
+    --Lizard-Gradientfrom: hsl(261, 73%, 60%);
+    --Lizard-Gradientto: hsl(261, 72%, 63%);
+    --Cyanfrom: hsl(189, 59%, 53%);
+    --Cyanto: hsl(189, 58%, 57%);
+    
+    /* Neutral */
+    --DarkText: hsl(229, 25%, 31%);
+    --ScoreText: hsl(229, 64%, 46%);
+    --HeaderOutline: hsl(217, 16%, 45%);
+    
+    /* Background */
+    --RadialGradientfrom: hsl(214, 47%, 23%);
+    --RadialGradientto: hsl(237, 49%, 15%);
+    
+    /* font */
+    --Family: 'Barlow';
+    --font-family: 'Public Sans', sans-serif;
+    
+    //weight
+    --Weights1: 600;
+    --Weights2: 700;
+    }
+
+    body{
+        margin: 0 auto;
+        max-width:  1366px;
+        height: 100vh;
+        color: white;
+        font-family: var(--font-family);
+        position: relative;
+        z-index: -1000;
+        user-select: none;
+    }
+    
+    .body{ 
+        position: relative;
+        background-repeat: no-repeat;
+        background: radial-gradient(var(--RadialGradientfrom), var(--RadialGradientto));
+        height: 100vh;
+        z-index: -100;
+        overflow: hidden;
+    }
+
+    .topsection{
+        width: 50vw;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 40px;
+        border: 1px solid white;
+        display: flex;
+        justify-content: space-between;
+        padding: 30px;
+        border-radius: 15px;
+        h1{
+            width: 10vw;
+            font-weight: var(--Weights2);
+        }
+        .scorecontainer{
+            background-color: white;
+            border-radius: 5px;
+            width: 70px;
+            color: var(--ScoreText);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            .scorenumber{
+                font-size: 50px;
+                font-weight: var(--Weights2);
+                color: var(--DarkText);
+            }
+        }
+    }
+
+
+    .middlesection.main{
+        margin-top: 0.5rem;
+        margin-left: 370px;
+        display: flex;
+        justify-content: space-around;
+        position: absolute;
+        .background{
+            position: absolute;
+            z-index: -10;
+            margin-top: 80px;
+        }
+        .circlecontainer{
+            display: flex;
+            .circle{
+                background-color: white;
+                border-radius: 100px;
+                cursor: pointer;
+            }
+            .paper{
+                width: 200px;
+                height: 195px;
+                border: 25px solid var(--Paper-Gradientto);
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                box-shadow: 0px 10px 0px var(--Paper-Gradientfrom),
+                             0px 10px 5px  rgba($color: #000000, $alpha: 0.3) inset;
+
+                img{
+                    border: 0;
+                    width: 60px;
+                    height: 70px;
+                    box-shadow: none;
+                }
+                
+            }
+            .rock{
+                width: 200px;
+                height: 195px;
+                margin-top: 230px;
+                margin-left: -50px;
+                margin-right: -50px;
+                border: 25px solid var(--Rock-Gradientto);
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                box-shadow: 0px 10px 0px var(--Rock-Gradientfrom),
+                0px 10px 5px  rgba($color: #000000, $alpha: 0.3) inset;
+
+                img{
+                    box-shadow: none;
+                    border: 0;
+                    width: 60px;
+                    height: 70px;
+                }
+            }
+            .scissors{
+                width: 200px;
+                height: 195px;
+                border: 25px solid var(--ScissorsGradientto);
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                box-shadow: 0px 10px 0px var(--ScissorsGradientfrom),
+                0px 10px 5px  rgba($color: #000000, $alpha: 0.3) inset;
+
+                img{
+                    box-shadow: none;
+                    border: 0;
+                    width: 60px;
+                    height: 70px;
+                }
+            }
+        }
+    }
+    .middlesection.main.active{
+        transform: translateX(200%);
+        display: none;
+    }
+    .middlesection.paper{
+        width: 70vw;
+        margin-top: 3em;
+        margin-left: 200px;
+        justify-content: space-around;
+        transform: translateX(-200%);
+        position: absolute;
+        .background{
+            position: absolute;
+            z-index: -10;
+            margin-top: 80px;
+        }
+        .circlecontainer{
+            display: flex;
+            justify-content: space-around;
+            width: 80vw;
+            .youwin{
+                margin-top: 5rem;
+                margin-left: 10px;
+                margin-right: 10px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                flex-direction: column;
+                .playAgainBox{
+                    background-color: aliceblue;
+                    color: var( --RadialGradientto);
+                    height: 30px;
+                    width: 300px;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    border-radius: 5px;
+                    margin-top: -20px;
+                    cursor: pointer;
+                }
+            }
+            .circle{
+                background-color: white;
+                border-radius: 100px;
+                cursor: pointer;
+            }
+            .paper{
+                border-radius: 300px;
+                width: 250px;
+                height: 250px;
+                border: 25px solid var(--Paper-Gradientto);
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                box-shadow: 0px 10px 0px var(--Paper-Gradientfrom),
+                             0px 10px 5px  rgba($color: #000000, $alpha: 0.3) inset;
+
+                img{
+                    border: 0;
+                    width: 60px;
+                    height: 70px;
+                    box-shadow: none;
+                }
+                
+            }
+            .rock{
+                border-radius: 300px;
+                width: 250px;
+                height: 250px;
+                border: 25px solid var(--Rock-Gradientto);
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                box-shadow: 0px 10px 0px var(--Rock-Gradientfrom),
+                0px 10px 5px  rgba($color: #000000, $alpha: 0.3) inset;
+
+                img{
+                    box-shadow: none;
+                    border: 0;
+                    width: 60px;
+                    height: 70px;
+                }
+            }
+            .scissors{
+                border-radius: 300px;
+                width: 250px;
+                height: 250px;
+                border: 25px solid var(--ScissorsGradientto);
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                box-shadow: 0px 10px 0px var(--ScissorsGradientfrom),
+                0px 10px 5px  rgba($color: #000000, $alpha: 0.3) inset;
+
+                img{
+                    box-shadow: none;
+                    border: 0;
+                    width: 60px;
+                    height: 70px;
+                }
+            }
+        }
+    }
+    .middlesection.paper.active{
+        transform: translateX(0%);
+        display: flex;
+    }
+    .lastsection{
+        .rulesbutton{
+            border: 2px solid white;
+            width: 5em;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            margin-bottom: 10px;
+            margin-right: 30px;
+            width: 7em;
+            height: 2em;
+            text-align: center;
+            border-radius: 10px;
+            padding: 2px;
+            padding-top: 5px;
+            cursor: pointer;
+           } 
+    }
+    .rulesBox{
+        font-weight: var(--Weights2);
+        opacity: 0;
+        background-color: white;
+        position: absolute;
+        z-index: 100;
+        transform: translate(-100%, -100%);
+        border-radius: 10px;
+        color: var(--DarkText);
+        padding: 20px;
+        transition: all 5s;
+        .closebutton{
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin-top: 35px;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+        .diagramcontainer{
+            margin-top: 60px;
+            margin-left: 30px;
+        }
+    }
+    .rulesBox.add{
+        transform: translate(120%, 35%);
+        opacity: 1;
+        transition: all 5s;
+    }
+    .nextPage{
+        justify-content: space-between;
+        width: 60vw;
+        
+    }
+    .head-circle{
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+    }
+
+    @media (max-width:1010px){
+        .middlesection.paper{
+            display: none;
+            margin-left: 150px;
+        }
+        .middlesection.main{
+            margin-left: 170px;
+        }
+        
+.middlesection.paper .circlecontainer .youwin .playAgainBox{
+    width: 200px;
+}
+    }
+    @media (max-width:700px){
+        .middlesection.paper{
+            display: none;
+            margin-left: 80px;
+        }
+        .middlesection.main{
+            margin-left: 100px;
+        }
+    }
+    @media (max-width:650px){
+        .body{
+            font-size: 10px;
+        }
+        .topsection{
+            width: 300px;
+        }
+        .middlesection.main{
+            margin-left: 30px;
+        }
+        .middlesection.main{
+            width: 50vw;
+            margin-left: 92px;
+            .background{
+                position: absolute;
+                z-index: -10;
+                margin-top: 80px;
+            }
+            .circlecontainer{
+                display: flex;
+                .circle{
+                    background-color: white;
+                    border-radius: 100px;
+                    cursor: pointer;
+                }
+                .paper{
+                    border: 15px solid var(--Paper-Gradientto);
+                    width: 160px;
+                    height: 155px;
+                    margin-left: 50px;
+                    margin-right: 50px;
+                }
+                .rock{
+                    border: 15px solid var(--Rock-Gradientto);
+                    width: 160px;
+                    height: 155px;
+                    margin-left: -110px;
+                    margin-right: -110px;
+                }
+                .scissors{
+                    border: 15px solid var(--ScissorsGradientto);
+                    width: 160px;
+                    height: 155px;
+                    margin-left: 50px;
+                    margin-right: 50px;
+                 }
+            }
+        }
+            .paper{
+                display: none;
+            }
+            .middlesection.paper{
+                display: none;
+                margin-left: 30px;
+            }
+            .middlesection.paper{
+                width: 70vw;
+                .circlecontainer{
+                    margin-left: 0px;
+                    .youwin{
+                        height: 15vh;
+                        margin-top: 15rem;
+                        margin-left: -100px;
+                        margin-right: 0px;
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        flex-direction: column;
+                        h1{
+                            font-size: 40px;
+                            margin-bottom: 20px;
+                        }
+                        .playAgainBox{
+                            background-color: aliceblue;
+                            color: var( --RadialGradientto);
+                            height: 50px;
+                            width: 200px;
+                            display: flex;
+                            justify-content: space-around;
+                            align-items: center;
+                            border-radius: 5px;
+                            margin-top: -30px;
+                            cursor: pointer;
+                        }
+                    }
+                    .circle{
+                        // height: 250px; width:250px;  border-radius: 300px;
+                        width:250px;
+                        height: 250px;
+                        border-radius: 300px;
+                        background-color: white;
+                        border-radius: 100px;
+                        cursor: pointer;
+                    }
+                    .paper{
+                        
+                        border: 15px solid var(--Paper-Gradientto);
+                        width: 150px;
+                        height: 150px;
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        box-shadow: 0px 10px 0px var(--Paper-Gradientfrom),
+                                     0px 10px 5px  rgba($color: #000000, $alpha: 0.3) inset;
+        
+                        img{
+                            border: 0;
+                            width: 60px;
+                            height: 70px;
+                            box-shadow: none;
+                        }
+                        
+                    }
+                    .rock{
+                        border: 15px solid var(--Rock-Gradientto);
+                        width: 160px;
+                        height: 155px;
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        box-shadow: 0px 10px 0px var(--Rock-Gradientfrom),
+                        0px 10px 5px  rgba($color: #000000, $alpha: 0.3) inset;
+        
+                        img{
+                            box-shadow: none;
+                            border: 0;
+                            width: 60px;
+                            height: 70px;
+                        }
+                    }
+                    .scissors{
+                        border: 15px solid var(--ScissorsGradientto);
+                        width: 160px;
+                        height: 155px;
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        box-shadow: 0px 10px 0px var(--ScissorsGradientfrom),
+                        0px 10px 5px  rgba($color: #000000, $alpha: 0.3) inset;
+        
+                        img{
+                            box-shadow: none;
+                            border: 0;
+                            width: 60px;
+                            height: 70px;
+                        }
+                    }
+                }
+            }
+            .head-circle{
+                height: 30vh;
+                flex-direction: column-reverse;
+            }
+            #head-circle-yourPick{
+                margin-left: -40px;
+            }
+            #head-circle-housePick{
+                margin-left: 250px;
+                
+                position: absolute;
+            }
+            // .lastsection{
+            //     .rulesbutton{
+            //         bottom: 5%;
+            //         right: 22%;
+            //         height: 5vh;
+            //         width: 10rem;
+            //         font-size: 20px;
+            //         font-weight: 700;
+            //     }
+            // }
+    }
+    @media (max-width:500px){
+     
+        .middlesection.main{
+            margin-left: 0px;
+        }
+    }
+    @media (max-width:375px) {
+        .body{
+            font-size: 10px;
+        }
+        .topsection{
+            width: 300px;
+        }
+        
+    .middlesection.main{
+        width: 50vw;
+        margin-left: 92px;
+        .background{
+            position: absolute;
+            z-index: -10;
+            margin-top: 80px;
+        }
+        .circlecontainer{
+            display: flex;
+            .circle{
+                background-color: white;
+                border-radius: 100px;
+                cursor: pointer;
+            }
+            .paper{
+                border: 15px solid var(--Paper-Gradientto);
+                width: 160px;
+                height: 155px;
+                margin-left: 50px;
+                margin-right: 50px;
+            }
+            .rock{
+                border: 15px solid var(--Rock-Gradientto);
+                width: 160px;
+                height: 155px;
+                margin-left: -110px;
+                margin-right: -110px;
+            }
+            .scissors{
+                border: 15px solid var(--ScissorsGradientto);
+                width: 160px;
+                height: 155px;
+                margin-left: 50px;
+                margin-right: 50px;
+             }
+        }
+    }
+        .paper{
+            display: none;
+        }
+        .middlesection.paper{
+            display: none;
+            margin-left: 30px;
+        }
+        .middlesection.paper{
+            width: 70vw;
+            .circlecontainer{
+                margin-left: 0px;
+                .youwin{
+                    height: 15vh;
+                    margin-top: 15rem;
+                    margin-left: -100px;
+                    margin-right: 0px;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    flex-direction: column;
+                    h1{
+                        font-size: 40px;
+                        margin-bottom: 20px;
+                    }
+                    .playAgainBox{
+                        background-color: aliceblue;
+                        color: var( --RadialGradientto);
+                        height: 50px;
+                        width: 200px;
+                        display: flex;
+                        justify-content: space-around;
+                        align-items: center;
+                        border-radius: 5px;
+                        margin-top: -30px;
+                        cursor: pointer;
+                    }
+                }
+                .circle{
+                    // height: 250px; width:250px;  border-radius: 300px;
+                    width:250px;
+                    height: 250px;
+                    border-radius: 300px;
+                    background-color: white;
+                    border-radius: 100px;
+                    cursor: pointer;
+                }
+                .paper{
+                    
+                    border: 15px solid var(--Paper-Gradientto);
+                    width: 150px;
+                    height: 150px;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    box-shadow: 0px 10px 0px var(--Paper-Gradientfrom),
+                                 0px 10px 5px  rgba($color: #000000, $alpha: 0.3) inset;
+    
+                    img{
+                        border: 0;
+                        width: 60px;
+                        height: 70px;
+                        box-shadow: none;
+                    }
+                    
+                }
+                .rock{
+                    border: 15px solid var(--Rock-Gradientto);
+                    width: 160px;
+                    height: 155px;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    box-shadow: 0px 10px 0px var(--Rock-Gradientfrom),
+                    0px 10px 5px  rgba($color: #000000, $alpha: 0.3) inset;
+    
+                    img{
+                        box-shadow: none;
+                        border: 0;
+                        width: 60px;
+                        height: 70px;
+                    }
+                }
+                .scissors{
+                    border: 15px solid var(--ScissorsGradientto);
+                    width: 160px;
+                    height: 155px;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    box-shadow: 0px 10px 0px var(--ScissorsGradientfrom),
+                    0px 10px 5px  rgba($color: #000000, $alpha: 0.3) inset;
+    
+                    img{
+                        box-shadow: none;
+                        border: 0;
+                        width: 60px;
+                        height: 70px;
+                    }
+                }
+            }
+        }
+        .head-circle{
+            height: 30vh;
+            flex-direction: column-reverse;
+        }
+        #head-circle-yourPick{
+            margin-left: -40px;
+        }
+        #head-circle-housePick{
+            margin-left: 250px;
+            
+            position: absolute;
+        }
+        .lastsection{
+            .rulesbutton{
+                bottom: 5%;
+                right: 22%;
+                height: 5vh;
+                width: 10rem;
+                font-size: 20px;
+                font-weight: 700;
+            }
+        }
+        .rulesBox{
+            width: 100vw;
+            height: 100vh;
+            border-radius: 0px;
+        }
+        .rulesBox.add{
+            transform: translate(0%,0%);
+        }
+        h2{
+            position: absolute;
+            left: 35%;
+            top: 20%;
+            font-size: 30px;
+            font-weight: 700;
+        }
+        .diagramcontainer{
+            position: absolute;
+            top: 20%;
+            left: 0;
+        }
+    }
